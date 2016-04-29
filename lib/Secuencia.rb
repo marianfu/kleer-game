@@ -41,4 +41,17 @@ class Secuencia
 		end
 		return contador
 	end
+
+	def ubicarDigitosIguales secuencia_ingresada
+		construirIncognita
+		contador = 0
+		@secuencia_incognita.each_with_index do |posicionI, indexI|
+			secuencia_ingresada.each_with_index do |posicion, index|
+				if(posicion.equals(posicionI) and index == indexI)
+					contador= contador + 1
+				end
+			end
+		end
+		return contador
+	end
 end
