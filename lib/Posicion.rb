@@ -15,5 +15,17 @@ class Posicion
 			false
 		end
 	end
+
+	def getDigito
+		return @digito
+	end
+
+	def equals pos1	
+		if @digito == pos1.getDigito
+			true
+		else	
+			false
+		end	
+	end
 	
 end
