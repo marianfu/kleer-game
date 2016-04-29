@@ -1,0 +1,16 @@
+Given(/^Entro al juego$/) do
+  visit "/"
+end
+
+When(/^Ingresar la secuencia \[(\d+),(\d+),(\d+),(\d+)\]$/) do |arg1, arg2, arg3, arg4|
+  	fill_in("posicion1", :with => arg1)
+	fill_in("posicion2", :with => arg2)
+	fill_in("posicion3", :with => arg3)
+	fill_in("posicion4", :with => arg4)
+	click_button("comprobar")
+end
+
+Then(/^secuencia valida$/) do
+  last_response.body.should =~ /ok/m
+end
+
