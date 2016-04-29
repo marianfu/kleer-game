@@ -29,6 +29,15 @@ class Secuencia
 		false
 	end
 
+	def validarSecuencia secuencia
+		secuencia.each do |posicion|
+			if(!posicion.validarDigito)
+				return false
+			end
+		end
+		return true
+	end
+
 	def contarDigitosIguales secuencia_ingresada
 		construirIncognita
 		contador = 0
@@ -54,4 +63,20 @@ class Secuencia
 		end
 		return contador
 	end
+	
+	def devolverResultado secuencia
+		contador = contarDigitosIguales secuencia
+		posicion = ubicarDigitosIguales	secuencia
+
+		if posicion == 4	
+			return "Ganaste!!"
+		end		
+		if contador == 0 and posicion == 0
+			return "No hay coincidencias" 	
+		else
+			return "#{contador} coincidencias por color - #{posicion} coincidencias por posicion"
+		end	
+		return nil	
+	end
+
 end
