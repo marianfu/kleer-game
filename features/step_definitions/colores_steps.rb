@@ -10,7 +10,12 @@ When(/^Ingresar la secuencia \[(\d+),(\d+),(\d+),(\d+)\]$/) do |arg1, arg2, arg3
 	click_button("comprobar")
 end
 
-Then(/^secuencia valida$/) do
-  last_response.body.should =~ /ok/m
+Then(/^veo secuencia valida$/) do
+  last_response.body.should =~ /OK/m
 end
+
+Then(/^veo secuencia invalida$/) do
+  last_response.body.should =~ /Ingrese una secuencia valida/m
+end
+
 

@@ -29,8 +29,8 @@ class Secuencia
 		false
 	end
 
-	def validarSecuencia secuencia
-		secuencia.each do |posicion|
+	def validarSecuencia
+		@secuencia.each do |posicion|
 			if(!posicion.validarDigito)
 				return false
 			end

@@ -33,7 +33,7 @@ describe "Color" do
 	it "Se ingresa una secuencia y es valida" do
 			secuencia = [Posicion.new(1), Posicion.new(2), Posicion.new(3), Posicion.new(4)]
 			secuencia_ingresada = Secuencia.new secuencia		
-			secuencia_ingresada.validarSecuencia(secuencia).should == true
+			secuencia_ingresada.validarSecuencia.should == true
 	end
 
 	it "Se sabe su 2 esta (en cualquier posicion) en la secuencia 1234" do
