@@ -1,3 +1,4 @@
+<div style="marging-left:10%; color:#5882FA" >
 <h1>Ingresar números</h1>
 
 <form method="post" action="/comprobar">
@@ -6,11 +7,27 @@
   	<input type="text" name="posicion2"><br>
  	<input type="text" name="posicion3"><br>
  	<input type="text" name="posicion4"><br>
-
+	<p/>
   	<input type="submit" value="comprobar">
 
 
-	<h1> <%= @@secuencia_historica.getSecuenciaIncognita %> </h1>
+	<h1> </h1>
 </form> 
 
-<%= @@respuesta%>
+<input id='respuesta' value="<%= @@secuencia_historica.getSecuenciaIncognita %> " />
+<button id="show">Mostrar respuesta</button>
+
+<p><%= @@respuesta%></p>
+
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+<script>
+	$(document).ready(function(){
+	$('#respuesta').toggle('hide');       
+    $('#show').click(function() {
+        $('#respuesta').toggle('hide');       
+    }); 
+});
+</script>
