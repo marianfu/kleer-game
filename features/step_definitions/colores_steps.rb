@@ -18,4 +18,20 @@ Then(/^veo secuencia invalida$/) do
   last_response.body.should =~ /Ingrese una secuencia valida/m
 end
 
+When(/^Si la incognita es \[(\d+),(\d+),(\d+),(\d+)\] y se ingresa la secuencia \[(\d+),(\d+),(\d+),(\d+)\]$/) do |arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8|
+  	fill_in("posicion1", :with => arg5)
+	fill_in("posicion2", :with => arg6)
+	fill_in("posicion3", :with => arg7)
+	fill_in("posicion4", :with => arg8)
+	click_button("comprobar")
+end
+
+Then(/^veo secuencia correcta$/) do
+  last_response.body.should =~ /Ganaste!!/m
+end
+
+Then(/^(\d+) coincidencias por color \- (\d+) coincidencias por posicion$/) do |arg1, arg2|
+  last_response.body.should =~ /3 coincidencias por color - 2 coincidencias por posicion/m
+end
+
 
