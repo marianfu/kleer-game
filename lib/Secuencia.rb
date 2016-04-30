@@ -41,14 +41,26 @@ class Secuencia
 	def contarDigitosIguales secuencia_ingresada
 		construirIncognita
 		contador = 0
+		array = []
+
 		@secuencia_incognita.each do |posicionI|
 			secuencia_ingresada.each do |posicion|
-				if(posicion.equals(posicionI))
+				if(posicion.equals(posicionI) and !existeDigitoEnArray(array, posicion.getDigito))
 					contador= contador + 1
+					array.push(posicion.getDigito)
 				end
 			end
 		end
 		return contador
+	end
+
+	def existeDigitoEnArray secuencia, digito
+		secuencia.each do |element|
+			if element == digito	
+				return true
+			end 	
+		end
+		return false		
 	end
 
 	def ubicarDigitosIguales secuencia_ingresada
