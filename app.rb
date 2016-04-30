@@ -17,7 +17,7 @@ post '/comprobar' do
 	if !@secuencia.validarSecuencia
 		@@respuesta = "Ingrese una secuencia valida"
 	else
-		@@respuesta = "OK"
+		@@respuesta = @secuencia.devolverResultado([digito1, digito2, digito3, digito4])
 	end
 	erb :colores
 end
