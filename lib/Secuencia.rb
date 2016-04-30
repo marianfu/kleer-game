@@ -1,7 +1,7 @@
 class Secuencia
 
 	def initialize secuencia
-		@secuencia = secuencia
+		@secuencia = secuencia		
 	end
 
 	def construirIncognita 
@@ -85,12 +85,12 @@ class Secuencia
 		posicion = ubicarDigitosIguales	secuencia
 
 		if posicion == 4	
-			return "Ganaste!!"
+			return "<br>Ganaste!!"
 		end		
 		if contador == 0 and posicion == 0
-			return "No hay coincidencias" 	
+			return "<br>No hay coincidencias"
 		else
-			return "#{contador} coincidencias por color - #{posicion} coincidencias por posicion"
+			return "<br>#{contador} coincidencias por color - #{posicion} coincidencias por posicion"
 		end	
 		return nil	
 	end

@@ -17,9 +17,9 @@ post '/comprobar' do
 	digito4 = Posicion.new(params[:posicion4].to_i)
   	@secuencia = Secuencia.new([digito1, digito2, digito3, digito4])
 	if !@secuencia.validarSecuencia
-		@@respuesta = "Ingrese una secuencia valida"
+		@@respuesta += "<br>Ingrese una secuencia valida"
 	else
-		@@respuesta = @secuencia.devolverResultado([digito1, digito2, digito3, digito4])
+		@@respuesta += @secuencia.devolverResultado([digito1, digito2, digito3, digito4])
 	end
 	erb :colores
 end

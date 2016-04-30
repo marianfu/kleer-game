@@ -62,21 +62,25 @@ describe "Color" do
 	end
 
 	it "Se ingresa una secuencia y no hay coincidencias" do
-		secuencia = [Posicion.new(5), Posicion.new(5), Posicion.new(5), Posicion.new(5)]
-		secuencia_ingresada = Secuencia.new secuencia		
-		secuencia_ingresada.devolverResultado(secuencia).should == "No hay coincidencias"
+
+		@@resultadoConcatenado = ''
+			secuencia = [Posicion.new(5), Posicion.new(5), Posicion.new(5), Posicion.new(5)]
+			secuencia_ingresada = Secuencia.new secuencia		
+			secuencia_ingresada.devolverResultado(secuencia).should == "<br>No hay coincidencias"
 	end
 
 	it "Se ingresa una secuencia y gano" do
-		secuencia = [Posicion.new(1), Posicion.new(2), Posicion.new(3), Posicion.new(4)]
-		secuencia_ingresada = Secuencia.new secuencia		
-		secuencia_ingresada.devolverResultado(secuencia).should == "Ganaste!!"
+			@@resultadoConcatenado = ''
+			secuencia = [Posicion.new(1), Posicion.new(2), Posicion.new(3), Posicion.new(4)]
+			secuencia_ingresada = Secuencia.new secuencia		
+			secuencia_ingresada.devolverResultado(secuencia).should == "<br>Ganaste!!"
 	end
 		
 	it "Se ingresa una secuencia y hay dos iguales en la misma posicion" do
-		secuencia = [Posicion.new(1), Posicion.new(2), Posicion.new(5), Posicion.new(6)]
-		secuencia_ingresada = Secuencia.new secuencia		
-		secuencia_ingresada.devolverResultado(secuencia).should == "2 coincidencias por color - 2 coincidencias por posicion"
+			@@resultadoConcatenado = ''
+			secuencia = [Posicion.new(1), Posicion.new(2), Posicion.new(5), Posicion.new(6)]
+			secuencia_ingresada = Secuencia.new secuencia		
+			secuencia_ingresada.devolverResultado(secuencia).should == "<br>2 coincidencias por color - 2 coincidencias por posicion"
 	end
 
 end
