@@ -11,7 +11,7 @@ When(/^Ingresar la secuencia \[(\d+),(\d+),(\d+),(\d+)\]$/) do |arg1, arg2, arg3
 end
 
 Then(/^veo secuencia valida$/) do
-  last_response.body.should =~ /4 coincidencias por color - 0 coincidencias por posicion/m
+  last_response.body.should =~ /#{@@respuesta}/m
 end
 
 Then(/^veo secuencia invalida$/) do

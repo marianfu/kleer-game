@@ -5,13 +5,20 @@ class Secuencia
 	end
 
 	def construirIncognita 
-		@secuencia_incognita = [Posicion.new(1), Posicion.new(2), Posicion.new(3), Posicion.new(4)]
+		d1= rand(1..6)
+		d2= rand(1..6)
+		d3= rand(1..6)
+		d4= rand(1..6)
+		@@secuencia_incognita = [Posicion.new(d1), Posicion.new(d2), Posicion.new(d3), Posicion.new(d4)]
 	end
 
+	def mockSecuenciaIncognita 
+		@@secuencia_incognita = [Posicion.new(1), Posicion.new(2), Posicion.new(3), Posicion.new(4)]
+	end	
+
 	def comparar
-		construirIncognita
 		@secuencia.each_with_index do |posicion, index|
-			if !@secuencia_incognita[index].equals(posicion)
+			if !@@secuencia_incognita[index].equals(posicion)
 				return false
 			end
 		end 
@@ -20,8 +27,7 @@ class Secuencia
 	end
 
 	def encontrar posicion
-		construirIncognita 
-		@secuencia_incognita.each do |posicionIncognita|
+		@@secuencia_incognita.each do |posicionIncognita|
 			if posicionIncognita.equals(posicion)
 				return true
 			end
@@ -39,11 +45,10 @@ class Secuencia
 	end
 
 	def contarDigitosIguales secuencia_ingresada
-		construirIncognita
 		contador = 0
 		array = []
 
-		@secuencia_incognita.each do |posicionI|
+		@@secuencia_incognita.each do |posicionI|
 			secuencia_ingresada.each do |posicion|
 				if(posicion.equals(posicionI) and !existeDigitoEnArray(array, posicion.getDigito))
 					contador= contador + 1
@@ -64,9 +69,8 @@ class Secuencia
 	end
 
 	def ubicarDigitosIguales secuencia_ingresada
-		construirIncognita
 		contador = 0
-		@secuencia_incognita.each_with_index do |posicionI, indexI|
+		@@secuencia_incognita.each_with_index do |posicionI, indexI|
 			secuencia_ingresada.each_with_index do |posicion, index|
 				if(posicion.equals(posicionI) and index == indexI)
 					contador= contador + 1
@@ -89,6 +93,14 @@ class Secuencia
 			return "#{contador} coincidencias por color - #{posicion} coincidencias por posicion"
 		end	
 		return nil	
+	end
+
+	def getSecuenciaIncognita
+		string = ""
+		@@secuencia_incognita.each do |element|
+			string.concat("#{element.getDigito.to_s} ")
+		end
+		return string
 	end
 
 end

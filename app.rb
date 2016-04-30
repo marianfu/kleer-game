@@ -5,6 +5,8 @@ require_relative "./lib/Posicion.rb"
 @@respuesta = ""
 
 get '/' do
+	@@secuencia_historica = Secuencia.new([Posicion.new(1),Posicion.new(1),Posicion.new(1),Posicion.new(1)])
+	@@secuencia_historica.construirIncognita	
 	erb :colores
 end
 
